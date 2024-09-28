@@ -19,6 +19,11 @@ app.use('/api/bill-payment', billPaymentRoutes);
 app.use('/api/wallet', walletRoute);
 app.use('/api/profile', profileRoute);
 
+// Default route for root path
+app.get('/', (req, res) => {
+    res.send('Server is up and running.');
+  });
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
