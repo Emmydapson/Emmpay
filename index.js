@@ -13,16 +13,18 @@ connectDB();
 const app = express();
 app.use(express.json());
 
+// Default route for root path
+app.get('/', (req, res) => {
+    res.send('Server is up and running.');
+  });
+
 app.use('/api/virtual-cards', virtualCardRoute);
 app.use('/api/auth', authRoutes);
 app.use('/api/bill-payment', billPaymentRoutes);
 app.use('/api/wallet', walletRoute);
 app.use('/api/profile', profileRoute);
 
-// Default route for root path
-app.get('/', (req, res) => {
-    res.send('Server is up and running.');
-  });
+
 
 
 const PORT = process.env.PORT || 5000;
