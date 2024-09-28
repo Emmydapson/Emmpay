@@ -1,6 +1,6 @@
 // routes/walletRoutes.js
 import express from 'express';
-import { getWalletBalance, convertCurrency } from '../controllers/WalletController.js';
+import { getWalletBalance, convertCurrency } from '../controllers/walletController.js';
 import { getTransactionHistory } from '../controllers/transactionController.js';
 import { sendToEmmpayUser, sendToBank } from '../controllers/sendMoneyController.js';
 import { withdrawFunds } from '../controllers/withdrawalController.js';
