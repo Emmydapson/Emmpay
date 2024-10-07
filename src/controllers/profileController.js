@@ -22,3 +22,23 @@ export const updateProfile = async (req, res) => {
     res.status(500).send('Server error');
   }
 };
+
+
+
+// Get Profile Controller
+export const getProfile = async (req, res) => {
+  const userId = req.user.id;  
+
+  try {
+    const user = await User.findById(userId).select('-password -pin');  // Exclude sensitive data like password and pin
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json({ user });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+};
+
